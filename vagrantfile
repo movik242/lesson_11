@@ -8,7 +8,7 @@ MACHINES = {
 script_server = <<-SCRIPT
 	      mkdir -p ~root/.ssh
               cp ~vagrant/.ssh/auth* ~root/.ssh
-	      yum install -y python ansible
+	      yum install -y epel-release python ansible
 SCRIPT
 
 script_client = <<-SCRIPT
