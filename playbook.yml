@@ -1,0 +1,8 @@
+---
+- hosts: client
+  become: yes
+  vars:
+    nginx_listen_port: 8009
+  roles:
+    - nginx
+

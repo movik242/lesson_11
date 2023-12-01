@@ -1,0 +1,30 @@
+
+MACHINES = {
+  :movik => {
+        :box_name => "movik2",
+    },
+}
+
+script = <<-SCRIPT
+	      mkdir -p ~root/.ssh
+              cp ~vagrant/.ssh/auth* ~root/.ssh
+	      yum install -y python
+SCRIPT
+
+
+
+
+Vagrant.configure("2") do |config|
+ config.vm.box = "movik2" 
+ 
+ config.vm.provider "virtualbox" do |v| 
+ v.memory = 512 
+ v.cpus = 1 
+ end 
+ config.vm.define "client" do |client| 
+ client.vm.hostname = "client" 
+ client.vm.provision "shell", inline: "#{script}"
+ end 
+ 
+end 
+
